@@ -1,0 +1,16 @@
+# HTTP to HTTPS redirects
+# This ensures all traffic is redirected to HTTPS
+
+# Force HTTPS for all pages
+http://harmonyhomeservices.com/* https://harmonyhomeservices.com/:splat 301!
+http://www.harmonyhomeservices.com/* https://harmonyhomeservices.com/:splat 301!
+
+# Redirect www to non-www (optional - choose your preference)
+https://www.harmonyhomeservices.com/* https://harmonyhomeservices.com/:splat 301!
+
+# Handle any potential old URLs or redirects
+/old-page /new-page 301
+/contact-us /contact.html 301
+
+# SPA fallback (if needed in the future)
+/* /index.html 200 
