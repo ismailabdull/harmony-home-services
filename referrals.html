@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refer a Client - Harmony Home Services</title>
+    <meta name="description" content="Refer clients to Harmony Home Services for Housing Stabilization Services in Minnesota. Simple, streamlined referral process with dedicated coordinator support.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Refer a Client - Harmony Home Services">
+    <meta property="og:description" content="Streamlined referral process for Housing Stabilization Services. One-click referral form with dedicated coordinator support.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harmonyhomeservices.org/referrals.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="images/site.webmanifest">
+    
+    <!-- Custom Fonts -->
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: italic;
+            font-display: swap;
+        }
+    </style>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #09b6d7;
+            --primary-dark: #078ba3;
+            --secondary-color: #080d15;
+            --accent-color: #09b6d7;
+            --text-dark: #080d15;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --radius: 4px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            color: var(--text-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo .home-services {
+            font-weight: 400;
+            color: #87CEEB;
+            margin-left: 0px;
+        }
+
+        .logo {
+            position: relative;
+        }
+        
+        .logo img {
+            height: 65px;
+            width: auto;
+            position: absolute;
+            top: -10px;
+            left: -50px;
+            z-index: 10;
+        }
+        
+        .logo span {
+            margin-left: 65px;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: var(--bg-light);
+        }
+
+        .mobile-menu-btn:focus {
+            outline: none;
+        }
+
+        .mobile-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mobile-close-btn:hover {
+            background-color: var(--bg-light);
+        }
+
+        .mobile-close-btn:focus {
+            outline: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Referral Coordinator Section */
+        .coordinator-section {
+            background: var(--bg-light);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .coordinator-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .coordinator-avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .coordinator-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .coordinator-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .coordinator-contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .coordinator-contact a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Referral Options */
+        .referral-options {
+            padding: 3rem 0;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .option-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .option-card.selected {
+            border-color: var(--primary-color);
+            background: var(--bg-light);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .option-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .option-card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Referral Form */
+        .referral-form-section {
+            padding: 3rem 0;
+            background: var(--bg-light);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(9, 182, 215, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: #dcfce7;
+            border: 1px solid #22c55e;
+            color: #166534;
+            padding: 1rem;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 1rem 0;
+        }
+
+        .mobile-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="images/5a8d86e2-f0a5-483f-b916-734e031f1ff4.png" alt="Harmony Home Services Logo">
+                    <span>HARMONY <span class="home-services">HOME SERVICES</span></span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="referrals.html" class="active">Referrals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="referrals.html">Referrals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Refer a Client</h1>
+            <p>Streamlined referral process for Housing Stabilization Services. Make referring as simple as possible with our dedicated coordinator and easy-to-use forms.</p>
+        </div>
+    </section>
+
+    <!-- Referral Coordinator Section -->
+    <section class="coordinator-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Your Dedicated Referral Coordinator</h2>
+            <div class="coordinator-card">
+                <div class="coordinator-avatar">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                                    <div class="coordinator-info">
+                        <h3>Khalid Mohamed</h3>
+                        <p><strong>Referral Coordinator</strong></p>
+                        <p>Your single point of contact for all referrals. Khalid ensures no referral falls through the cracks and provides timely updates on client status.</p>
+                        <div class="coordinator-contact">
+                            <a href="tel:+1-651-279-4382"><i class="fas fa-phone"></i> (651) 279-4382</a>
+                            <a href="mailto:referrals@harmonyhomeservices.org"><i class="fas fa-envelope"></i> referrals@harmonyhomeservices.org</a>
+                            <p><i class="fas fa-clock"></i> Available: Mon-Fri 8AM-5PM CST</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral Options -->
+    <section class="referral-options">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Choose Your Preferred Referral Method</h2>
+            <div class="options-grid">
+                <div class="option-card" onclick="selectOption('online')">
+                    <div class="option-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Online Form</h3>
+                    <p>Complete referral form directly on our website. Instant submission and immediate confirmation.</p>
+                    <button class="btn" onclick="showOnlineForm()" style="font-size: 1.1rem; padding: 1rem 2rem; font-weight: 600;">Start Online Referral</button>
+                </div>
+                
+                <div class="option-card" onclick="selectOption('pdf')">
+                    <div class="option-icon">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3>Download PDF</h3>
+                    <p>Download our referral form, fill it out, and email or fax it back to us.</p>
+                    <a href="downloads/referral-form.pdf" class="btn btn-secondary" download>Download PDF Form</a>
+                </div>
+                
+                <div class="option-card" onclick="selectOption('phone')">
+                    <div class="option-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone Referral</h3>
+                    <p>Call our referral coordinator directly to make a referral over the phone.</p>
+                    <a href="tel:+1-651-279-4382" class="btn btn-secondary">Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Referral Form -->
+    <section class="referral-form-section" id="referralForm" style="display: none;">
+        <div class="container">
+            <div class="form-container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Client Referral Form</h2>
+                
+                <div class="success-message" id="successMessage">
+                    <i class="fas fa-check-circle"></i> Thank you! Your referral has been submitted successfully. Our coordinator will contact you within 24 hours.
+                </div>
+
+                <form id="referralFormElement" action="https://formspree.io/f/xpzgwqjz" method="POST">
+                    <!-- Referrer Information -->
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">Referrer Information</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="referrerName">Your Name <span class="required">*</span></label>
+                            <input type="text" id="referrerName" name="referrerName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="referrerOrganization">Organization <span class="required">*</span></label>
+                            <input type="text" id="referrerOrganization" name="referrerOrganization" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="referrerPhone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="referrerPhone" name="referrerPhone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="referrerEmail">Email Address <span class="required">*</span></label>
+                            <input type="email" id="referrerEmail" name="referrerEmail" required>
+                        </div>
+                    </div>
+
+                    <!-- Client Information -->
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">Client Information</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="clientName">Client Name <span class="required">*</span></label>
+                            <input type="text" id="clientName" name="clientName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clientPhone">Client Phone</label>
+                            <input type="tel" id="clientPhone" name="clientPhone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clientEmail">Client Email</label>
+                            <input type="email" id="clientEmail" name="clientEmail">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="clientAddress">Current Address</label>
+                            <input type="text" id="clientAddress" name="clientAddress" placeholder="Street, City, State, ZIP">
+                        </div>
+                    </div>
+
+                    <!-- Eligibility Information -->
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">Eligibility Information</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="medicaidId">Medicaid ID (if known)</label>
+                            <input type="text" id="medicaidId" name="medicaidId">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <input type="date" id="dateOfBirth" name="dateOfBirth">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="housingStatus">Current Housing Status <span class="required">*</span></label>
+                            <select id="housingStatus" name="housingStatus" required>
+                                <option value="">Select status...</option>
+                                <option value="homeless">Currently Homeless</option>
+                                <option value="at-risk">At Risk of Homelessness</option>
+                                <option value="unstable">Unstable Housing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="disabilityStatus">Disability Status</label>
+                            <select id="disabilityStatus" name="disabilityStatus">
+                                <option value="">Select status...</option>
+                                <option value="physical">Physical Disability</option>
+                                <option value="mental">Mental Health Disability</option>
+                                <option value="developmental">Developmental Disability</option>
+                                <option value="multiple">Multiple Disabilities</option>
+                                <option value="none">No Disability</option>
+                                <option value="unknown">Unknown</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Service Needs -->
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">Service Needs</h3>
+                    
+                    <div class="form-group full-width">
+                        <label>Services Needed (check all that apply)</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="housingSearch" name="servicesNeeded[]" value="housingSearch">
+                            <label for="housingSearch">Housing Search & Application Assistance</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="landlordNegotiation" name="servicesNeeded[]" value="landlordNegotiation">
+                            <label for="landlordNegotiation">Landlord Negotiation & Advocacy</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="benefitsApplication" name="servicesNeeded[]" value="benefitsApplication">
+                            <label for="benefitsApplication">Benefits Application Assistance</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="housingStabilization" name="servicesNeeded[]" value="housingStabilization">
+                            <label for="housingStabilization">Housing Stabilization Support</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="caseManagement" name="servicesNeeded[]" value="caseManagement">
+                            <label for="caseManagement">Case Management</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="urgentNeeds">Urgent Needs or Immediate Concerns</label>
+                        <textarea id="urgentNeeds" name="urgentNeeds" placeholder="Describe any urgent housing needs, safety concerns, or immediate assistance required..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="additionalInfo">Additional Information</label>
+                        <textarea id="additionalInfo" name="additionalInfo" placeholder="Any other relevant information about the client's situation, preferences, or special considerations..."></textarea>
+                    </div>
+
+                    <!-- Release of Information -->
+                    <h3 style="color: var(--primary-color); margin: 2rem 0 1rem 0; border-bottom: 2px solid var(--primary-color); padding-bottom: 0.5rem;">Release of Information</h3>
+                    
+                    <div class="form-group full-width">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="releaseOfInfo" name="releaseOfInfo" required>
+                            <label for="releaseOfInfo"><span class="required">*</span> I have obtained verbal or written consent from the client to share this information with Harmony Home Services for the purpose of providing Housing Stabilization Services.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="contactPermission" name="contactPermission" required>
+                            <label for="contactPermission"><span class="required">*</span> I give permission for Harmony Home Services to contact me regarding this referral and provide updates on the client's status.</label>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn" style="font-size: 1.1rem; padding: 1rem 2rem;">
+                            <i class="fas fa-paper-plane"></i> Submit Referral
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 Harmony Home Services. All rights reserved.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        function selectOption(option) {
+            // Remove selected class from all cards
+            document.querySelectorAll('.option-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked card
+            event.currentTarget.classList.add('selected');
+        }
+
+        function showOnlineForm() {
+            document.getElementById('referralForm').style.display = 'block';
+            document.getElementById('referralForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Form submission handling
+        document.getElementById('referralFormElement').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // Scroll to success message
+            document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                document.getElementById('referralFormElement').reset();
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referral Status - Harmony Home Services</title>
+    <meta name="description" content="Track the status of your referrals to Harmony Home Services. Check progress and get updates on client services.">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Referral Status - Harmony Home Services">
+    <meta property="og:description" content="Track your referrals and get updates on client progress with our transparent status system.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://harmonyhomeservices.org/referral-status.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png?v=2">
+    <link rel="manifest" href="images/site.webmanifest">
+    
+    <!-- Custom Fonts -->
+    <style>
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Montserrat';
+            src: url('fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+            font-weight: 100 900;
+            font-style: italic;
+            font-display: swap;
+        }
+    </style>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #09b6d7;
+            --primary-dark: #078ba3;
+            --secondary-color: #080d15;
+            --accent-color: #09b6d7;
+            --text-dark: #080d15;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --radius: 4px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            color: var(--text-dark);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logo .home-services {
+            font-weight: 400;
+            color: #87CEEB;
+            margin-left: 0px;
+        }
+
+        .logo {
+            position: relative;
+        }
+        
+        .logo img {
+            height: 65px;
+            width: auto;
+            position: absolute;
+            top: -10px;
+            left: -50px;
+            z-index: 10;
+        }
+        
+        .logo span {
+            margin-left: 65px;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            background-color: var(--bg-light);
+        }
+
+        .mobile-menu-btn:focus {
+            outline: none;
+        }
+
+        .mobile-close-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1001;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+            transition: var(--transition);
+        }
+
+        .mobile-close-btn:hover {
+            background-color: var(--bg-light);
+        }
+
+        .mobile-close-btn:focus {
+            outline: none;
+        }
+
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Status Search */
+        .status-search {
+            padding: 3rem 0;
+            background: var(--bg-light);
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(9, 182, 215, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Status Results */
+        .status-results {
+            padding: 3rem 0;
+        }
+
+        .status-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .status-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .client-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .status-badge {
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .status-received {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-reviewing {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .status-contacted {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-active {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-closed {
+            background: #f3f4f6;
+            color: #6b7280;
+        }
+
+        .referral-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .detail-value {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .timeline {
+            border-left: 2px solid var(--border-color);
+            padding-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.75rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-action {
+            font-weight: 500;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-notes {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 3rem 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .contact-method:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .status-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .referral-details {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+            text-align: center;
+        }
+
+        .mobile-menu li {
+            margin: 1rem 0;
+        }
+
+        .mobile-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .mobile-menu a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="images/5a8d86e2-f0a5-483f-b916-734e031f1ff4.png" alt="Harmony Home Services Logo">
+                    <span>HARMONY <span class="home-services">HOME SERVICES</span></span>
+                </a>
+                
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="referrals.html">Referrals</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close-btn" onclick="toggleMobileMenu()">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="referrals.html">Referrals</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Referral Status Tracker</h1>
+            <p>Check the status of your referrals and track client progress. Get real-time updates on services and outcomes.</p>
+        </div>
+    </section>
+
+    <!-- Status Search -->
+    <section class="status-search">
+        <div class="container">
+            <div class="search-container">
+                <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Search Referral Status</h2>
+                
+                <form id="statusForm">
+                    <div class="form-group">
+                        <label for="referrerEmail">Your Email Address *</label>
+                        <input type="email" id="referrerEmail" name="referrerEmail" required placeholder="Enter the email you used when making the referral">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientName">Client Name (Optional)</label>
+                        <input type="text" id="clientName" name="clientName" placeholder="Enter client's first and last name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="referralDate">Referral Date Range</label>
+                        <select id="referralDate" name="referralDate">
+                            <option value="">All referrals</option>
+                            <option value="last7">Last 7 days</option>
+                            <option value="last30">Last 30 days</option>
+                            <option value="last90">Last 90 days</option>
+                            <option value="lastyear">Last year</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        <i class="fas fa-search"></i> Search Referrals
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Status Results -->
+    <section class="status-results" id="statusResults" style="display: none;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--text-dark);">Your Referrals</h2>
+            
+            <div id="referralsList">
+                <!-- Sample referral status cards -->
+                <div class="status-card">
+                    <div class="status-header">
+                        <div class="client-name">John Smith</div>
+                        <span class="status-badge status-active">Active Services</span>
+                    </div>
+                    
+                    <div class="referral-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Referral Date</span>
+                            <span class="detail-value">January 15, 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Referrer</span>
+                            <span class="detail-value">Jane Doe - County Social Services</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Housing Status</span>
+                            <span class="detail-value">At Risk of Homelessness</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Services Requested</span>
+                            <span class="detail-value">Housing Search, Advocacy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 15, 2024 - 2:30 PM</div>
+                            <div class="timeline-action">Referral Received</div>
+                            <div class="timeline-notes">Referral submitted via online form</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 16, 2024 - 10:15 AM</div>
+                            <div class="timeline-action">Initial Assessment Completed</div>
+                            <div class="timeline-notes">Client contacted and intake assessment completed</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 18, 2024 - 3:45 PM</div>
+                            <div class="timeline-action">Housing Search Initiated</div>
+                            <div class="timeline-notes">Started searching for accessible housing options in preferred area</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 22, 2024 - 11:20 AM</div>
+                            <div class="timeline-action">Application Submitted</div>
+                            <div class="timeline-notes">Housing application submitted for 2-bedroom accessible unit</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="status-card">
+                    <div class="status-header">
+                        <div class="client-name">Maria Rodriguez</div>
+                        <span class="status-badge status-completed">Services Completed</span>
+                    </div>
+                    
+                    <div class="referral-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Referral Date</span>
+                            <span class="detail-value">December 10, 2023</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Referrer</span>
+                            <span class="detail-value">Jane Doe - County Social Services</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Housing Status</span>
+                            <span class="detail-value">Housed</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Services Provided</span>
+                            <span class="detail-value">Housing Search, Advocacy, Benefits Support</span>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 10, 2023 - 9:45 AM</div>
+                            <div class="timeline-action">Referral Received</div>
+                            <div class="timeline-notes">Urgent referral for family with children</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">December 12, 2023 - 2:15 PM</div>
+                            <div class="timeline-action">Emergency Housing Secured</div>
+                            <div class="timeline-notes">Temporary housing arranged while searching for permanent solution</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 5, 2024 - 4:30 PM</div>
+                            <div class="timeline-action">Permanent Housing Secured</div>
+                            <div class="timeline-notes">Family moved into 3-bedroom apartment with rental assistance</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">January 15, 2024 - 1:00 PM</div>
+                            <div class="timeline-action">Services Completed</div>
+                            <div class="timeline-notes">Family successfully housed and stable. Follow-up scheduled for 3 months.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-info">
+                <h3>Need Help or Have Questions?</h3>
+                <p>If you can't find your referral or need additional information, contact Khalid directly for assistance.</p>
+                
+                <div class="contact-methods">
+                    <a href="tel:+1-651-279-4382" class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <span>(651) 279-4382</span>
+                    </a>
+                    <a href="mailto:referrals@harmonyhomeservices.org" class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <span>referrals@harmonyhomeservices.org</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; 2024 Harmony Home Services. All rights reserved.</p>
+                </div>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Form submission handling
+        document.getElementById('statusForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show results section
+            document.getElementById('statusResults').style.display = 'block';
+            
+            // Scroll to results
+            document.getElementById('statusResults').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html> 
